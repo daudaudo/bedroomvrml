@@ -2,7 +2,7 @@
 ## Đề tài: CyberGame
 
 ## Danh sách thành viên:
-- ***Phan Văn Bình - B18DCPT031**
+- **Phan Văn Bình - B18DCPT031**
 - **Nguyễn Kim Tùng - B18DCPT211**
 - **Trần Văn Luân - B18DCPT151**
 - **Nguyễn Ngọc Thành - B18DCPT216**
