@@ -26,10 +26,10 @@ function init() {
 
     // light
 
-    const hemiLight = new THREE.HemisphereLight( 0xffffff, 0x000000, 1 );
+    const hemiLight = new THREE.HemisphereLight(0xffffff, 0xffffff, .5);
     scene.add( hemiLight );
 
-    const dirLight = new THREE.DirectionalLight( 0xffffff, 0.5 );
+    const dirLight = new THREE.DirectionalLight( 0xffffff, .8 );
     dirLight.position.set( 200, 200, 200 );
     scene.add( dirLight );
 
@@ -38,9 +38,11 @@ function init() {
 
     // renderer
 
-    renderer = new THREE.WebGLRenderer();
+    renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setPixelRatio( window.devicePixelRatio );
     renderer.setSize( window.innerWidth, window.innerHeight );
+    renderer.autoClear = false;
+    renderer.setClearColor(0x000000, 0.0);
     document.body.appendChild( renderer.domElement );
 
     // controls
