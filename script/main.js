@@ -33,6 +33,9 @@ function init() {
     dirLight.position.set( 200, 200, 200 );
     scene.add( dirLight );
 
+    let gridHelper = new THREE.GridHelper(50, 50);
+    scene.add(gridHelper);
+
     loader = new VRMLLoader();
     loadAsset(asset);
 
