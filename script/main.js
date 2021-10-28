@@ -61,6 +61,21 @@ function init() {
     document.body.appendChild( stats.dom );
 
     window.addEventListener( 'resize', onWindowResize );
+    const gui = new GUI( { width: 300 } );
+    window.onhashchange = () => {
+        if ( vrmlScene ) {
+            vrmlScene.traverse( function ( object ) {
+
+                if ( object.material ) object.material.dispose();
+                if ( object.material && object.material.map ) object.material.map.dispose();
+                if ( object.geometry ) object.geometry.dispose();
+
+            } );
+            scene.remove( vrmlScene );
+        }
+        hash = window.location.hash
+        loadAsset( hash.length > 1 ? hash.substr(1, hash.length) : 'index' );
+    }
 }
 
 function loadAsset( asset ) {
