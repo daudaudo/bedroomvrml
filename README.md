@@ -1,5 +1,5 @@
 # Bài tập giữa kỳ môn ứng dụng thực tại ảo
-## Đề tài: CyberGame
+## Đề tài: Bedroom
 
 ## Danh sách thành viên:
 - **Phan Văn Bình - B18DCPT031**
