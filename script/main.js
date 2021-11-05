@@ -30,8 +30,12 @@ function init() {
     scene.add( hemiLight );
 
     const dirLight = new THREE.DirectionalLight( 0xffffff, .8 );
-    dirLight.position.set( 200, 200, 200 );
+    dirLight.position.set( 0, 20, 10 );
     scene.add( dirLight );
+
+    var backLight = new THREE.DirectionalLight(0xffffff, .3);
+    backLight.position.set(-10, 2, -10);
+    scene.add(backLight)
 
     let gridHelper = new THREE.GridHelper(50, 50);
     scene.add(gridHelper);
