@@ -1,20 +1,19 @@
 #VRML V2.0 utf8
 
 Transform {
-	translation	0.05 0 0.15
+	translation	0.01 0 0.1
 	scale 0.08 0.7 0.08
 	children [
-	DEF ob Shape {
-			appearance Appearance {
+	Shape {
+			appearance DEF chair_leg_texture Appearance {
 				material Material {
 					diffuseColor 1.0 1.0 1.0
-					ambientIntensity 0.2
-					specularColor 0.8 0.8 0.8
-					shininess 0.4
-					transparency 0
+				}
+				texture	ImageTexture {
+					url	"../texture/chair_leg.jpg"
 				}
 			}
-			geometry IndexedFaceSet {
+			geometry DEF chair_leg IndexedFaceSet {
 				ccw TRUE
 				solid FALSE
 
@@ -35,44 +34,55 @@ Transform {
 }
 
 Transform {
-	translation	-1.05 0 0.15
+	translation	-1.01 0 0.1
 	scale 0.08 0.7 0.08
-	children [USE ob]
+	children [Shape {
+		appearance USE chair_leg_texture
+		geometry USE chair_leg
+	}]
 }
 
 Transform {
-	translation	-1.05 0 -1.15
+	translation	-1.01 0 -1.1
 	scale 0.08 0.7 0.08
-	children [USE ob]
+	children [Shape {
+		appearance USE chair_leg_texture
+		geometry USE chair_leg
+	}]
 }
 
 Transform {
-	translation	0.05 0 -1.15
+	translation	0.01 0 -1.1
 	scale 0.08 0.7 0.08
-	children [USE ob]
+	children [Shape {
+		appearance USE chair_leg_texture
+		geometry USE chair_leg
+	}]
 }
 
 Transform {
 	translation	-0.5 0.7 -0.5
-	scale 0.7 0.07 0.8
-	children [USE ob]
+	scale 0.6 0.07 0.7
+	children [Shape {
+		appearance DEF chair_body_texture Appearance {
+				material Material {
+					diffuseColor 1.0 1.0 1.0
+				}
+				texture	ImageTexture {
+					url	"../texture/chair_body.jpg"
+				}
+			}
+		geometry USE chair_leg
+			}]
 }
 
 Transform {
-	translation	-0.5 1.7 0.3
-	scale 0.65 1 0.05
+	translation	-0.5 1.6 0.2
+	scale 0.65 0.9 0.05
 	rotation 1 0 0 0.15
 	children [
 	DEF on Shape {
-			appearance Appearance {
-				material Material {
-					diffuseColor 1.0 1.0 1.0
-					ambientIntensity 0.2
-					specularColor 0.8 0.8 0.8
-					shininess 0.4
-					transparency 0
-				}
-			}
+			appearance USE chair_body_texture
 			geometry IndexedFaceSet {
 				ccw TRUE
 				solid FALSE
