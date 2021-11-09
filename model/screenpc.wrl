@@ -8,7 +8,7 @@ Group {
 				}
 				appearance DEF A1 Appearance {
 					material Material {
-						diffuseColor 0.5 0.8 0.7
+						diffuseColor 0.52 0.52 0.52
 					}
 				}
 			}
@@ -44,7 +44,7 @@ Group {
 				rotation 1 0 0 -1.57
 				children [
 					Shape {
-						appearance Appearance {}
+						appearance USE A1
 							geometry IndexedFaceSet {
 								coord Coordinate {
 									point [-5 0 -3,5 0 -3,5 0 3,-5 0 3,-1 0.5 -1,1 0.5 -1,1 0.5 1, -1 0.5 1]
@@ -57,12 +57,94 @@ Group {
 											0 1 2 3 0]
 																												   
 								color Color	{
-									color [0.5 0.8 0.7, 0 1 0, 0 0 1]
+									color [0.52 0.52 0.52]
 								}
 								colorPerVertex FALSE
-								colorIndex [0 0 0 0 1 0]
+								colorIndex [0]
 								solid TRUE
 					}
+}
+				]
+			}
+
+	Transform {
+		translation	0 1.6 1.1
+	children [
+Group {
+	children [
+	 Transform {
+		 children [
+		  Shape	{
+			  geometry DEF b1 Box {
+				  size 10 0.2 0.2
+			  }
+			  appearance USE A1
+
+		  }
+		  Transform	{
+			  translation -4.9 2.9 0
+			  children [
+			  Shape	{
+			  geometry DEF b2 Box {
+				  size 0.2 6 0.2
+			  }
+			  appearance USE A1
+
+		  }
+			  ]
+		  }
+
+		  Transform	{
+			  translation 0 5.9 0
+			  children [
+			  Shape	{
+			  geometry USE b1
+			  appearance USE A1
+
+		  }
+			  ]
+		  }
+
+		  Transform	{
+			  translation 4.9 2.9 0
+			  children [
+			  Shape	{
+			  geometry USE b2
+			  appearance USE A1
+
+		  }
+			  ]
+		  }
+		 ]
+	 }
+
+	 Transform {
+			   translation 0 2.9 -0.05
+				children [
+					Shape {
+						appearance Appearance {
+							texture	ImageTexture {
+								url	["F:\bedroomvrml\texture\winxp.jpg"]
+							}
+						}
+						
+							geometry IndexedFaceSet {
+								coord Coordinate {
+									point [4.8 2.9 0 , 4.8 -2.9 0, -4.8 -2.9 0, -4.8 2.9 0]
+							}
+								coordIndex [3 2 1 0 3]
+																												   
+								color Color	{
+									color [0.52 0.52 0.52]
+								}
+								colorPerVertex FALSE
+								colorIndex [0]
+								solid TRUE
+					}
+}
+				]
+			}
+	]
 }
 				]
 			}
