@@ -1,0 +1,167 @@
+#VRML V2.0 utf8
+
+DEF	plant Group	{
+	children [
+		DEF	Chau Group {
+			children [
+				Shape {
+					appearance DEF mauchau Appearance {
+						material Material {
+							diffuseColor 0.6 0.8 0.6
+						}
+					}
+					geometry Cylinder {
+						radius 1
+						height 0.5
+					}
+				}
+				Transform {
+					translation	0 0.25 0
+					scale 0.9 0.2 0.9
+					children [
+						Shape {
+							appearance Appearance {
+								material Material {
+									diffuseColor 0.3 0.1 0
+								}
+							}
+							geometry Sphere	{
+
+							}
+						}
+					]
+				}
+				Transform {
+					translation	0 -0.25 0
+					scale 1 0.5 1
+					children [
+						Shape {
+							appearance USE mauchau
+							geometry Sphere	{
+
+							}
+						}
+					]
+				}
+			]
+		}
+		DEF	cay Transform {
+			translation	0 1 0
+			children [
+				DEF thancay Transform {
+					scale 1 1.1 1
+					children [
+						Shape {
+							appearance DEF maucay Appearance {
+								material Material {
+									diffuseColor 0 0.5 0
+								}
+							}
+							geometry Sphere	{
+								radius 0.7
+							}
+						}
+					]
+				}
+				DEF	canh Transform {
+					scale 1.1 1 0.6
+					children [
+						USE	thancay
+						DEF	chumgai Transform {
+							children [
+								DEF gai Transform {
+									rotation 0 0 1 1.5707963268
+									children [
+										Shape {
+											appearance Appearance {
+												material Material {
+													diffuseColor 0 0.3 0
+												}
+											}
+											geometry Cylinder {
+												radius 0.01
+												height 1.55
+											}
+										}
+									]
+								}
+								Transform {
+									rotation 0 0 1 0.2617993878
+									children [
+										USE	gai
+									]
+								}
+								Transform {
+									rotation 0 0 1 -0.2617993878
+									children [
+										USE	gai
+									]
+								}
+								Transform {
+									rotation 0 0 1 0.5235987756
+									children [
+										USE	gai
+									]
+								}
+								Transform {
+									rotation 0 0 1 -0.5235987756
+									children [
+										USE	gai
+									]
+								}
+								Transform {
+									rotation 0 0 1 0.7853981634
+									children [
+										USE	gai
+									]
+								}
+								Transform {
+									rotation 0 0 1 -0.7853981634
+									children [
+										USE	gai
+									]
+								}
+								Transform {
+									rotation 0 0 1 1.0471975512
+									children [
+										USE	gai
+									]
+								}
+								Transform {
+									rotation 0 0 1 -1.0471975512
+									children [
+										USE	gai
+									]
+								}
+							]
+						}
+					]
+				}
+				Transform {
+					rotation 0 1 0 0.62831853072
+					children [
+						USE	canh
+					]
+				}
+				Transform {
+					rotation 0 1 0 1.2566370614
+					children [
+						USE	canh
+					]
+				}
+				Transform {
+					rotation 0 1 0 1.8849555922
+					children [
+						USE	canh
+					]
+				}
+				Transform {
+					rotation 0 1 0 2.5132741229
+					children [
+						USE	canh
+					]
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,49 @@
+#VRML V2.0 utf8
+
+DEF	radio Group	{
+	children [
+		Shape {
+			appearance Appearance {
+			   material	Material {
+				   diffuseColor	0.8 0.8 0.8
+			   }
+			   texture ImageTexture	{
+				   url "../texture/bedwood.jpg"
+			   }
+			}
+			geometry Box {
+				size 1.6 1 1
+			}
+		}
+		Transform {
+			translation	-0.8 -0.5 0.51
+			scale 1.6 1 1
+			children [
+				Shape {
+					appearance Appearance {
+						material Material {
+							diffuseColor 0.8 0.8 0.8
+						}
+						texture	ImageTexture {
+							url	"../texture/radio.jpg"
+						}
+					}
+					geometry IndexedFaceSet {
+						coord Coordinate {
+							point  [
+								0,0,0,
+								1,0,0,
+								1,1,0,
+								0,1,0,
+							]
+						}
+						coordIndex [
+							0,1,2,3,-1
+						]
+					}
+				}
+			]
+		}
+	]
+}
+
