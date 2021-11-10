@@ -1,0 +1,306 @@
+#VRML V2.0 utf8
+
+DEF	bookcase Group {
+	children [
+		DEF emptybookcase Group {
+			children [
+				DEF tamngang1 Shape {
+					appearance DEF maugiasach Appearance {
+						material Material {
+							diffuseColor 0.8 0.8 0.8
+						}
+						texture	ImageTexture {
+							url	"../texture/bookcasewood.jpg"
+						}
+					}
+					geometry Box {
+						size 16 0.4 4
+					}
+				}
+				Transform {
+					translation	0 9 0
+					children [
+						Shape {
+							appearance USE maugiasach
+							geometry Box {
+								size 0.4 17.6 4
+							}
+						}
+					]
+				}
+				DEF tamdung1 Transform {
+					translation	-7.8 3.6 0
+					children [
+						Shape {
+							appearance USE maugiasach
+							geometry Box {
+								size 0.4 6.8 4
+							}
+						}
+					]
+				}
+				DEF	tamdung2 Transform {
+					translation	7.8 1.8 0
+					children [
+						Shape {
+							appearance USE maugiasach
+							geometry Box {
+								size 0.4 3.2 4
+							}
+						}
+					]
+				}
+				DEF	tamngang2 Transform	{
+					translation	2 3.6 0
+					children [
+						Shape {
+							appearance USE maugiasach
+							geometry Box {
+								size 12 0.4 4
+							}
+						}
+					]
+				}
+				DEF	cot Transform {
+					translation	7 5.4 0
+					children [
+						Shape {
+							appearance USE maugiasach
+							geometry Cylinder {
+								radius 0.4
+								height 3.2
+							}
+						}
+					]
+				}
+				Transform {
+					translation	0 7.2 0
+					children [
+						USE	tamngang1
+					]
+				}
+				Transform {
+					translation	15.6 7.2 0
+					children [
+						USE	tamdung1
+					]
+				}
+				Transform {
+					translation	-14 3.6 0
+					children [
+						USE	cot
+					]
+				}
+				Transform {
+					translation	-4 7.2 0
+					children [
+						USE	tamngang2
+					]
+				}
+				Transform {
+					translation	0 10.8 0
+					children [
+						USE	tamdung1
+					]
+				}
+				Transform {
+					translation	0 10.8 0
+					children [
+						USE	tamngang2
+					]
+				}
+				Transform {
+					translation	0 10.8 0
+					children [
+						USE	cot
+					]
+				}
+				Transform {
+					translation	0 18 0
+					children [
+						USE	tamngang1
+					]
+				}
+				DEF	tamsau Transform {
+					translation -2.1 1.8 -1.8
+					children [
+						Shape {
+							appearance USE maugiasach
+							geometry Box {
+								size 3.8 3.2 0.4
+							}
+						}
+					]
+				}
+				DEF	captamsau Group {
+					children [
+						Transform {
+							translation	0 7.2 0
+							children [
+								USE	tamsau
+							]
+						}
+						Transform {
+							translation	0 14.4 0
+							children [
+								USE	tamsau
+							]
+						}
+					]
+				}
+				Transform {
+					translation	4.2 -3.6 0
+					children [
+						USE	captamsau
+					]
+				}
+
+			]
+		}
+
+		DEF	book1 Transform	{
+			translation	0.5 4.8 1
+			scale 0.8 0.8 0.8
+			rotation 0 1 0 3.1415926536
+			children [
+				DEF	redbook Inline {
+					url	"./books/redbook.wrl"
+				}
+				Transform {
+					translation	-0.6 0 0
+					children [
+						DEF	bluebook Inline {
+							url	"./books/bluebook.wrl"
+						}
+					]
+				}
+				Transform {
+					translation	-1.2 0 0
+					children [
+						DEF	greenbook Inline {
+							url	"./books/greenbook.wrl"
+						}
+					]
+				}
+				Transform {
+					translation	-2.6 0.3 0
+					rotation 0 0 1 -0.5235987756
+					children [
+						DEF	purplebook Inline {
+							url	"./books/purplebook.wrl"
+						}
+					]
+				}		
+			]
+		}
+
+		DEF	book2 Transform {
+			translation	-0.5 8.4 1
+			scale 0.8 0.8 0.8
+			rotation 0 1 0 3.1415926536
+			children [
+				USE	redbook
+				Transform {
+					translation	0.6 0 0
+					children [
+						DEF	yellowbook Inline {
+							url	"./books/yellowbook.wrl"
+						}
+					]
+				}
+				Transform {
+					translation	1.5 0 0
+					rotation 0 0 1 0.2
+					children [
+						USE	greenbook
+					]
+				}
+				Transform {
+					translation	2.6 0.3 0
+					rotation 0 0 1 0.5235987756
+					children [
+						USE	bluebook
+					]
+				}
+				Transform {
+					translation	4.4 -0.1 0
+					rotation 0 0 1 1.0471975512
+					children [
+						USE	redbook
+					]
+				}
+			]
+		}
+
+		DEF	book3 Transform	{
+			translation	3.5 8.4 1
+			scale 0.8 0.8 0.8
+			rotation 0 0 1 1.5707963268
+			children [
+				Transform {
+					translation	-0.9 0 0
+					children [
+						USE	redbook
+					]
+				}
+				Transform {
+					translation	-0.3 0 0
+					children [
+						USE	bluebook
+					]
+				}
+				Transform {
+					translation	0.3 0 0
+					children [
+						USE	greenbook
+					]
+				}
+				Transform {
+					translation	0.9 0 0
+					children [
+						USE	yellowbook
+					]
+				}
+
+				
+			]
+		}
+
+		DEF	photo Transform {
+			translation	2 11.8 1
+			scale 1.5 1.5 1.5
+			children [
+				Inline {
+					url	"photo.wrl"
+				}
+			]
+		}
+		DEF	photo2 Transform {
+			translation	-2 15.4 1
+			scale 1.5 1.5 1.5
+			children [
+				Inline {
+					url	"photo2.wrl"
+				}
+			]
+		}
+		DEF	plant Transform	{
+			translation	3.5 15.2 0
+			children [
+				Inline {
+					url	"plant.wrl"
+				}
+			]
+		}
+		DEF	radio Transform	{
+			translation	-4 12 1
+			scale 2 2 2
+			children [
+				Inline {
+					url	"radio.wrl"
+				}
+			]
+		}
+	]
+}
+
