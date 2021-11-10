@@ -1,0 +1,45 @@
+#VRML V2.0 utf8
+
+Transform {
+	translation	0 5 3.5
+	children [
+	Shape {
+	appearance Appearance {
+				material Material {}
+				texture ImageTexture {
+					
+					url "../texture/pad1.jpg"
+				}
+			}
+	geometry Box {
+		size 40 40 0.2
+	}
+}
+	]
+}
+
+Group {
+	children [
+		DEF a Transform {
+		scale 1 1 1
+	    children
+		[
+
+
+	Inline {
+
+	url "mouse-pc.wrl"
+
+}
+]
+	}
+	DEF ps PlaneSensor {
+
+	maxPosition 10 10
+
+	minPosition -10 -10
+
+	}
+]
+}
+ROUTE ps.translation_changed TO a.set_translation

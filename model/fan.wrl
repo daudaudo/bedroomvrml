@@ -1,0 +1,125 @@
+#VRML V2.0 utf8
+
+ Transform {
+	 scale 3 0.5 3
+	 children [
+		Shape {
+			appearance DEF d1 Appearance {
+				 material Material  {
+						diffuseColor .32 .54 .26
+						specularColor .46 .46 .46
+						ambientIntensity .0933
+						shininess .51
+					}
+				}
+				geometry Sphere	{
+
+				}
+			}
+	 ]
+ }
+
+  Transform {
+	 translation 0 6 0
+	 rotation 1 0 0 3.14
+	 children [
+
+			Shape {
+				appearance  USE	d1
+				geometry Cone {
+						 bottomRadius 3
+						height 2
+				}
+			}
+	 ]
+ }
+
+ Transform {
+	 translation 0 3 0
+	 rotation 1 0 0 3.14
+	 children [
+			 Shape {
+				appearance  USE	d1
+				geometry Cylinder {
+						radius 0.5 
+						height 6
+				}
+			}
+
+	 ]
+ }
+
+
+
+ DEF	h1 Transform {
+	translation	 0 0  6
+	scale 0.5 5 1
+	children [
+		Shape {
+			appearance USE d1
+			 geometry Box {
+				 size 1 0.1 15
+			 }
+		}
+Shape {
+	appearance Appearance {
+		material Material {
+			diffuseColor .32 .54 .26
+			specularColor .46 .46 .46
+			ambientIntensity .0933
+			shininess .51
+		}
+	}
+		geometry IndexedFaceSet {
+			coord Coordinate {
+				point [
+						-2 0.05 -2,	#0	7
+						2 0.05 -2,		#1	8
+						4 0.05 10,		#2	9
+						3 0.05 13,		#3	10
+						0 0.05 14,		#4	11
+						-3 0.05 13,	#5	12
+						-4 0.05 10,	#6	13
+						-2 -0.05 -2,	
+						2 -0.05 -2,		
+						4 -0.05 10,		
+						3 -0.05 13,		
+						0 -0.05 14,		
+						-3 -0.05 13,	
+						-4 -0.05 10				
+					]
+		}
+			coordIndex [0 1 2 3 4 5 6 0	-1
+						7 8 9 10 11 12 13 7	-1
+						0 7 8 1 -1
+						1 8 9 2 -1
+						2 9 10 3 -1
+						3 10 11 4  -1
+						4 11 12 5	-1
+						5 12 13 6 -1
+						6 13 7 0 -1
+					]
+			  solid	FALSE
+}
+}
+	]
+}
+
+Transform {
+	translation	 0 0 0
+	rotation 0 1 0 1.57
+	children [USE h1 ]
+}
+Transform {
+	translation	 0 0 0
+	rotation 0 1 0 -1.57
+	children [USE h1 ]
+}
+Transform {
+	translation	 0 0 0
+	rotation 0 1 0 3.14
+	children [USE h1 ]
+}
+
+
+
