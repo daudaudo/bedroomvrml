@@ -2,36 +2,40 @@
 
 
 NavigationInfo {
-   headlight FALSE
+   headlight TRUE
+
 }
 
-Transform {
-	translation	0 6.5 0
+
+Group {
 	children [
-		DEF li PointLight {
-         color 1 1 1
-         intensity 1
-         ambientIntensity 1
-         location 0 0 0
-         radius 50
-         attenuation 1 0 0
-      }
-	]
+		 Transform {
+			translation	0 20 0
+			children [
+				DEF ps ProximitySensor { size 100 100 100}
+				DEF sl SpotLight { on TRUE 
+					color 1 1 0
+					direction 0 -1 0
+					location 0 0 0
+					beamWidth 1.57
+				}
 
-}
+			]
+		}
+	]	}
+ROUTE ps.isActive TO sl.set_on
 
 
 Shape {
 	appearance Appearance {
 		material Material {
-			diffuseColor 1 1 1
-			specularColor 1 1 1
-			emissiveColor .65 .65 0
+			diffuseColor .36 .36 .36
+			specularColor .94 .94 .94
+			emissiveColor 0 .36 .27
 			ambientIntensity 1
-			shininess .32
-			transparency .5
+			shininess 0
+			transparency .765
 			
-
 		}
 	}
 	geometry Box {

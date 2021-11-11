@@ -2,6 +2,23 @@
 
 Group {
 	children [
+		 Transform {
+			translation	0 0 0
+			scale 1 1 1
+			children [
+				DEF ps ProximitySensor { size 20 20 20}
+				DEF sl SpotLight { on FALSE
+					color 0 1 0
+					location 0 0 4}
+
+			]
+		}
+	]	}
+ROUTE ps.isActive TO sl.set_on
+
+
+Group {
+	children [
 		Shape {
 			appearance Appearance {
 				material Material {

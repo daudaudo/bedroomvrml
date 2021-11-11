@@ -1,0 +1,42 @@
+#VRML V2.0 utf8
+
+#VRML V2.0 utf8
+
+
+      DEF TOUCH TouchSensor {}
+      Shape { 
+	 appearance Appearance { material DEF MAT Material { diffuseColor .2 .2 .2 } }
+	 geometry Sphere {}
+      }		
+
+	  DEF light PointLight {
+			color  1 0 0
+			intensity 1
+			on TRUE
+			location 0 5 10
+			radius 350
+		}
+
+DEF SCRIPT Script {
+   eventIn SFBool clicked
+   eventOut SFColor color
+   field SFBool lit FALSE
+   url "vrmlscript:
+
+function clicked(val) {
+   if(val) {
+      if(lit) { 
+	 color = new SFColor(.2,.2,.2); 
+	 lit = FALSE;
+      }
+      else { 
+	 color = new SFColor(1,1,0); 
+	 lit = TRUE;
+      }
+   }
+}"
+
+}
+
+ROUTE TOUCH.isActive TO SCRIPT.clicked
+ROUTE SCRIPT.color TO light.color

@@ -15,13 +15,16 @@ DEF h2 Transform {
 	children [
 		Shape {
 			appearance Appearance {
-				material Material {
-					diffuseColor .671 .349 0
-				}
-
-			}
+            material Material {
+              diffuseColor 0.3686 0.1098 0.098
+              ambientIntensity 1.0
+              specularColor 0.234 0.234 0.234
+              shininess 0.2875
+              transparency 0
+            }
+          }
 			geometry Box {
-				size 1 2 0.05
+				size 1 2.2 0.05
 			}
 		}
 		   Transform {
@@ -31,8 +34,12 @@ DEF h2 Transform {
 				Shape {
 					appearance DEF Mat Appearance {
 						material Material {
-							diffuseColor 0 0 0
-						}
+              diffuseColor 0.698 0.698 0.698
+              ambientIntensity 1.0
+              specularColor 0.5676 0.5676 0.5676
+              shininess 0.62
+              transparency 0
+            }
 
 					}
 					geometry Cylinder {
@@ -44,7 +51,7 @@ DEF h2 Transform {
 		   }
 		   Transform {
 			   translation 0.3 0 0.04
-			   scale 1.2 1.2 0.5
+			   scale 1.2 1.2 0.8
 			   children	[
 				Shape {
 					appearance USE Mat

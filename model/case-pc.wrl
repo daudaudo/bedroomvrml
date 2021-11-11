@@ -17,26 +17,12 @@ Transform {
       }
 	]
 }
-Transform {
-	translation 0 0 3.6
-	children [
-		 USE li
-      
-	]
-}
-Transform {
-	translation 2 0 -1
-	children [
-		 USE li
-      
-	]
-}
 
 Transform {
 	translation -2 -5 -1
 	children [
-		 PointLight {
-         color 0 1 0
+		 DEF li1 PointLight {
+         color 0 0 0
          intensity 1
          ambientIntensity 0
          location 0 0 0
@@ -45,6 +31,29 @@ Transform {
       }
 	]
 }
+
+Group {
+	children [
+		 DEF TOUCH TouchSensor {}
+     
+Transform {
+	translation	-1 1.75 0
+	children [
+		DEF	btn Shape {
+			geometry Cylinder {
+				radius 0.5
+				height 1
+			}
+		}
+	]
+}
+
+	
+	]
+}
+
+
+
 
 Transform {
 	translation	2 -4.5 0.5
@@ -214,4 +223,30 @@ Shape {
 					}
 }
 
+
+
+DEF SCRIPT Script {
+   eventIn SFBool clicked
+   eventOut SFColor color
+   field SFBool lit FALSE
+   url "vrmlscript:
+
+function clicked(val) {
+   if(val) {
+      if(lit) { 
+	 color = new SFColor(0,0,0); 
+	 lit = FALSE;
+      }
+      else { 
+	 color = new SFColor(1,1,0); 
+	 lit = TRUE;
+      }
+   }
+}"
+
+}
+
+ROUTE TOUCH.isActive TO SCRIPT.clicked
+ROUTE SCRIPT.color TO li.color
+ROUTE SCRIPT.color TO li1.color
  
