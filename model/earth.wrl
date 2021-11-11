@@ -1,0 +1,134 @@
+#VRML V2.0 utf8
+
+
+NavigationInfo {
+   headlight FALSE
+   type "EXAMINE"
+}
+
+Transform {
+	translation	0 6.5 0
+	children [
+		DEF li PointLight {
+         color 1 1 1
+         intensity 1
+         ambientIntensity 1
+         location 0 0 0
+         radius 50
+         attenuation 1 0 0
+      }
+	]
+
+}
+
+
+Shape {
+	appearance Appearance {
+		material Material {
+			diffuseColor 1 1 1
+			specularColor 1 1 1
+			emissiveColor .65 .65 0
+			ambientIntensity 1
+			shininess .32
+			transparency .5
+			
+
+		}
+	}
+	geometry Box {
+		size 22 13 22
+	}
+}
+
+Transform {
+	translation	0 -7 0
+	children [
+		Shape {
+			appearance Appearance {
+				material Material {}
+				texture ImageTexture {
+		
+					url "../texture/wood1.png"
+				}
+			}
+			geometry Box {
+				size 24 1 24
+			}
+		}
+	]
+}
+
+Group {
+	children [
+		DEF	 td Transform	{
+		translation 0 0 0
+		children [
+				 Shape {
+			            appearance Appearance {
+				material Material {}
+				texture ImageTexture {
+		
+					url "../texture/earth.jpg"
+				}
+			}
+
+
+				geometry Sphere {
+
+				radius 6
+
+				}
+			}
+			DEF mt Transform {
+				   translation 10 0 0
+				   children	[
+				   Shape {
+			            appearance Appearance {
+						material Material {}
+						texture ImageTexture {
+		
+							url "../texture/moon.jpg"
+						}
+					}
+
+
+						geometry Sphere {
+
+						radius 1
+
+						}
+					}
+				   ]
+			}
+
+]
+}
+		
+
+
+DEF clock TimeSensor {
+
+	cycleInterval 8
+
+	loop TRUE
+
+	}
+	DEF	 sfpath OrientationInterpolator{
+		key	[
+			0.0 0.5 1.0
+		
+		]
+		keyValue [
+			0 1 0 0
+			0 1 0 3.14
+			0 1 0 6.28
+	  
+
+		]
+	}
+]
+}
+ROUTE clock.fraction_changed TO	sfpath.set_fraction
+ROUTE sfpath.value_changed TO	td.set_rotation
+ROUTE sfpath.value_changed TO	mt.set_rotation
+
