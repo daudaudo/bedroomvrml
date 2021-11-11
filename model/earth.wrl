@@ -3,7 +3,6 @@
 
 NavigationInfo {
    headlight FALSE
-   type "EXAMINE"
 }
 
 Transform {

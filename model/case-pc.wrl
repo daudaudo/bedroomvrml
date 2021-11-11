@@ -5,19 +5,46 @@ NavigationInfo {
    headlight FALSE
 }
 Transform {
-	translation 100 100 -100
+	translation 0 0 -3.6
 	children [
-		PointLight {
-         color 1 1 1
+		 DEF li PointLight {
+         color 1 0 0
          intensity 1
          ambientIntensity 0
          location 0 0 0
-         radius 300
+         radius 5
          attenuation 1 0 0
       }
 	]
 }
+Transform {
+	translation 0 0 3.6
+	children [
+		 USE li
+      
+	]
+}
+Transform {
+	translation 2 0 -1
+	children [
+		 USE li
+      
+	]
+}
 
+Transform {
+	translation -2 -5 -1
+	children [
+		 PointLight {
+         color 0 1 0
+         intensity 1
+         ambientIntensity 0
+         location 0 0 0
+         radius 5
+         attenuation 1 0 0
+      }
+	]
+}
 
 Transform {
 	translation	2 -4.5 0.5
@@ -114,7 +141,9 @@ Transform {
 Shape {
 	appearance Appearance {
 		material Material {
-			diffuseColor 0.1 0.1 0.1
+			diffuseColor 0 0 0
+			specularColor .63 .92 1
+			ambientIntensity 0
 		}
 	}
 		geometry IndexedFaceSet {
@@ -162,14 +191,10 @@ Shape {
 Shape {
 						appearance Appearance {
 							material Material {
-								diffuseColor .36 .36 .36
-								specularColor .94 .94 .94
-								emissiveColor 0 .36 .27
-								ambientIntensity 0
-								shininess .23
-								transparency .68
-								
-								
+								diffuseColor 1 1 1
+								ambientIntensity .984
+								shininess 0
+								transparency .506
 							}
 						}
 							geometry IndexedFaceSet {
