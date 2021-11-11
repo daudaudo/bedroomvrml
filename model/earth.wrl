@@ -1,0 +1,137 @@
+#VRML V2.0 utf8
+
+
+NavigationInfo {
+   headlight TRUE
+
+}
+
+
+Group {
+	children [
+		 Transform {
+			translation	0 20 0
+			children [
+				DEF ps ProximitySensor { size 100 100 100}
+				DEF sl SpotLight { on TRUE 
+					color 1 1 0
+					direction 0 -1 0
+					location 0 0 0
+					beamWidth 1.57
+				}
+
+			]
+		}
+	]	}
+ROUTE ps.isActive TO sl.set_on
+
+
+Shape {
+	appearance Appearance {
+		material Material {
+			diffuseColor .36 .36 .36
+			specularColor .94 .94 .94
+			emissiveColor 0 .36 .27
+			ambientIntensity 1
+			shininess 0
+			transparency .765
+			
+		}
+	}
+	geometry Box {
+		size 22 13 22
+	}
+}
+
+Transform {
+	translation	0 -7 0
+	children [
+		Shape {
+			appearance Appearance {
+				material Material {}
+				texture ImageTexture {
+		
+					url "../texture/wood1.png"
+				}
+			}
+			geometry Box {
+				size 24 1 24
+			}
+		}
+	]
+}
+
+Group {
+	children [
+		DEF	 td Transform	{
+		translation 0 0 0
+		children [
+				 Shape {
+			            appearance Appearance {
+				material Material {}
+				texture ImageTexture {
+		
+					url "../texture/earth.jpg"
+				}
+			}
+
+
+				geometry Sphere {
+
+				radius 6
+
+				}
+			}
+			DEF mt Transform {
+				   translation 10 0 0
+				   children	[
+				   Shape {
+			            appearance Appearance {
+						material Material {}
+						texture ImageTexture {
+		
+							url "../texture/moon.jpg"
+						}
+					}
+
+
+						geometry Sphere {
+
+						radius 1
+
+						}
+					}
+				   ]
+			}
+
+]
+}
+		
+
+
+DEF clock TimeSensor {
+
+	cycleInterval 8
+
+	loop TRUE
+
+	}
+	DEF	 sfpath OrientationInterpolator{
+		key	[
+			0.0 0.5 1.0
+		
+		]
+		keyValue [
+			0 1 0 0
+			0 1 0 3.14
+			0 1 0 6.28
+	  
+
+		]
+	}
+]
+}
+ROUTE clock.fraction_changed TO	sfpath.set_fraction
+ROUTE sfpath.value_changed TO	td.set_rotation
+ROUTE sfpath.value_changed TO	mt.set_rotation
+

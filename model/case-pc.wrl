@@ -5,18 +5,54 @@ NavigationInfo {
    headlight FALSE
 }
 Transform {
-	translation 100 100 -100
+	translation 0 0 -3.6
 	children [
-		PointLight {
-         color 1 1 1
+		 DEF li PointLight {
+         color 1 0 0
          intensity 1
          ambientIntensity 0
          location 0 0 0
-         radius 300
+         radius 5
          attenuation 1 0 0
       }
 	]
 }
+
+Transform {
+	translation -2 -5 -1
+	children [
+		 DEF li1 PointLight {
+         color 0 0 0
+         intensity 1
+         ambientIntensity 0
+         location 0 0 0
+         radius 5
+         attenuation 1 0 0
+      }
+	]
+}
+
+Group {
+	children [
+		 DEF TOUCH TouchSensor {}
+     
+Transform {
+	translation	-1 1.75 0
+	children [
+		DEF	btn Shape {
+			geometry Cylinder {
+				radius 0.5
+				height 1
+			}
+		}
+	]
+}
+
+	
+	]
+}
+
+
 
 
 Transform {
@@ -114,7 +150,9 @@ Transform {
 Shape {
 	appearance Appearance {
 		material Material {
-			diffuseColor 0.1 0.1 0.1
+			diffuseColor 0 0 0
+			specularColor .63 .92 1
+			ambientIntensity 0
 		}
 	}
 		geometry IndexedFaceSet {
@@ -162,14 +200,10 @@ Shape {
 Shape {
 						appearance Appearance {
 							material Material {
-								diffuseColor .36 .36 .36
-								specularColor .94 .94 .94
-								emissiveColor 0 .36 .27
-								ambientIntensity 0
-								shininess .23
-								transparency .68
-								
-								
+								diffuseColor 1 1 1
+								ambientIntensity .984
+								shininess 0
+								transparency .506
 							}
 						}
 							geometry IndexedFaceSet {
@@ -189,4 +223,30 @@ Shape {
 					}
 }
 
+
+
+DEF SCRIPT Script {
+   eventIn SFBool clicked
+   eventOut SFColor color
+   field SFBool lit FALSE
+   url "vrmlscript:
+
+function clicked(val) {
+   if(val) {
+      if(lit) { 
+	 color = new SFColor(0,0,0); 
+	 lit = FALSE;
+      }
+      else { 
+	 color = new SFColor(1,1,0); 
+	 lit = TRUE;
+      }
+   }
+}"
+
+}
+
+ROUTE TOUCH.isActive TO SCRIPT.clicked
+ROUTE SCRIPT.color TO li.color
+ROUTE SCRIPT.color TO li1.color
  
