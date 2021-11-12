@@ -42,8 +42,20 @@ DEF	radio Group	{
 						]
 					}
 				}
+				DEF Touch TouchSensor { },
+				Sound {
+					source DEF Src AudioClip {
+						url "../sound/radio.mp3"
+						pitch 1.0
+					}
+					 minFront 5.0
+					minBack  5.0
+					maxFront 10.0
+					maxBack  10.0
+				}
 			]
 		}
 	]
 }
+ROUTE Touch.touchTime TO Src.set_startTime
 
