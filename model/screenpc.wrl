@@ -8,7 +8,7 @@ Group {
 				}
 				appearance DEF A1 Appearance {
 					material Material {
-						diffuseColor 0.52 0.52 0.52
+						diffuseColor 0.45 0.45 0.45
 					}
 				}
 			}
@@ -57,7 +57,7 @@ Group {
 											0 1 2 3 0]
 																												   
 								color Color	{
-									color [0.52 0.52 0.52]
+									color [0.4 0.4 0.4]
 								}
 								colorPerVertex FALSE
 								colorIndex [0]
@@ -124,7 +124,7 @@ Group {
 					Shape {
 						appearance Appearance {
 							texture	ImageTexture {
-								url	["F:\bedroomvrml\texture\winxp.jpg"]
+								url	[]
 							}
 						}
 						
@@ -135,7 +135,7 @@ Group {
 								coordIndex [3 2 1 0 3]
 																												   
 								color Color	{
-									color [0.52 0.52 0.52]
+									color [0.4 0.4 0.4]
 								}
 								colorPerVertex FALSE
 								colorIndex [0]
