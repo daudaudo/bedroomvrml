@@ -332,6 +332,7 @@ Group {
 					appearance USE A1
 				}
 			]
+			
 		}
 
 		Transform {
@@ -353,6 +354,17 @@ Group {
 						size 1 0.1 1
 					}
 					appearance USE A1
+				}
+			]
+		}
+		#Den gia sach
+		Transform {
+			translation	-1.8 3.7 6.4
+			children[
+				PointLight {
+					intensity 1
+					color 1 0 1	
+					radius	2.9
 				}
 			]
 		}
