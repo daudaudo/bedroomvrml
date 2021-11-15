@@ -1,5 +1,17 @@
 #VRML V2.0 utf8
 
+
+DEF	touch TouchSensor {
+
+}
+
+Sound {
+	source DEF sou AudioClip {
+		loop FALSE
+		url	"../sound/keyboard.mp3"
+	}
+}
+
 Shape {
     geometry IndexedFaceSet {
         creaseAngle 0.785
@@ -30,8 +42,7 @@ Shape {
         material Material {
             diffuseColor 1 1 1
         }
-        # texture 貼り付けるテクスチャ
-        # textureTransform テクスチャの貼り付け位置
+
     }
 }
 
@@ -138,3 +149,6 @@ Transform {
     scale 1 0.75 1
     children [USE ListKeys]
 }
+
+
+ROUTE touch.touchTime TO sou.startTime

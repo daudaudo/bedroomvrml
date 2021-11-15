@@ -44,7 +44,12 @@ Transform {
 								children [
 									DEF LampArm Shape {
                 						appearance DEF Color Appearance {
-                    						material Material { diffuseColor 0 1 0 }
+                    						material Material {  
+												diffuseColor .23 .39 .19
+												specularColor .2 .3 .29
+												ambientIntensity .06
+												shininess .39
+											}
 								
                 						}
                 						geometry Cylinder {

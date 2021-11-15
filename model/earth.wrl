@@ -2,31 +2,15 @@
 
 
 NavigationInfo {
-   headlight TRUE
+   headlight FALSE
 
 }
 
+Transform {
 
-Group {
 	children [
-		 Transform {
-			translation	0 20 0
-			children [
-				DEF ps ProximitySensor { size 100 100 100}
-				DEF sl SpotLight { on TRUE 
-					color 1 1 0
-					direction 0 -1 0
-					location 0 0 0
-					beamWidth 1.57
-				}
-
-			]
-		}
-	]	}
-ROUTE ps.isActive TO sl.set_on
-
-
-Shape {
+	DEF LightSwitch TouchSensor { }
+		Shape {
 	appearance Appearance {
 		material Material {
 			diffuseColor .36 .36 .36
@@ -42,6 +26,10 @@ Shape {
 		size 22 13 22
 	}
 }
+	]
+}
+
+
 
 Transform {
 	translation	0 -7 0
@@ -131,7 +119,110 @@ DEF clock TimeSensor {
 	}
 ]
 }
+
+ROUTE LightSwitch.touchTime TO clock.startTime
+ROUTE LightSwitch.touchTime TO clock.stopTime
 ROUTE clock.fraction_changed TO	sfpath.set_fraction
 ROUTE sfpath.value_changed TO	td.set_rotation
 ROUTE sfpath.value_changed TO	mt.set_rotation
+
+#anh sang
+
+
+   Group {
+	   children	[
+	   
+	   
+
+
+Transform {
+	translation 10.5 6 10.5
+	children [
+		DEF	LampLight SpotLight{
+			radius 30
+			intensity 0.5
+			direction -1 -1 -1
+			beamWidth 1
+		}
+
+	]
+}
+Transform {
+	translation -10.5 6 10.5
+	children [
+		DEF	LampLight1 SpotLight{
+			radius 30
+			intensity 0.5
+			direction 1 -1 -1
+			beamWidth 1
+		}
+
+	]
+}
+Transform {
+	translation -10.5 6 -10.5
+	children [
+		DEF	LampLight2 SpotLight{
+			radius 30
+			intensity 0.5
+			direction 1 -1 1
+			beamWidth 1
+		}
+
+	]
+}
+Transform {
+	translation 10.5 6 -10.5
+	children [
+		DEF	LampLight3 SpotLight{
+			radius 30
+			intensity 0.5
+			direction -1 -1 1
+			beamWidth 1
+		}
+
+	]
+}
+
+
+	   
+	   
+	   ]
+   }
+
+
+DEF Toggle Script {
+	field    SFBool on TRUE
+	field	 SFColor oncolor 1 1 1
+	field	 SFColor offcolor 0 0 0
+	field	 SFColor color 0.5 0.5 0.5
+	eventIn  SFBool set_active
+	eventOut SFBool on_changed
+	eventOut SFColor on_color
+
+	url "javascript:
+	function set_active(b) {
+			// ignore button releases
+			if ( b == FALSE ) return;
+
+			// toggle on button presses
+			if ( on == TRUE ){ 
+				on = FALSE;
+				color = offcolor
+			}
+			else {             
+				on = TRUE;
+				color = oncolor
+			}
+			on_changed = on;
+			on_color = color;
+		}"
+}
+
+ROUTE LightSwitch.isActive TO Toggle.set_active
+ROUTE Toggle.on_changed	TO LampLight.set_on
+ROUTE Toggle.on_changed	TO LampLight1.set_on
+ROUTE Toggle.on_changed	TO LampLight2.set_on
+ROUTE Toggle.on_changed	TO LampLight3.set_on
+
 

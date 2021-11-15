@@ -1,0 +1,36 @@
+
+Door : cylinderSensor
+
+switch light/fan: touchsensor
+
+Light room on/off: 
+	light: - script[eventIn  (SFBool) & eventOut (SFBool) & field  (SFBool) TRUE/FALSE]
+	material: - script[eventIn  (SFBool) & eventOut (SFColor) & field  (SFColor) ]
+
+FanRotating  on/off:
+	rotation: Timesensor + OrientationInterpolator 
+
+Earth on/off:
+	rotation: exp fanRotating
+	light: exp light room
+
+radio sound:
+	sound: touchSensor.touchtime + audioclip.startTime
+
+case pc screen-pc playvideo and playaudio:
+	
+	TouchSensor.touchTime + MovieTexture (startTime,stopTime) + light: exp fanRotating
+
+Mouse moving:
+	PlaneSensor. translation_changed => translation
+
+keyboard playaudio:
+	sound: touchSensor.touchtime + audioclip.startTime
+
+desk-lamp moving+rotating+light on/off:
+	light on/off: exp lightroom
+	rotating: CylinderSensor + SphereSensor
+	moving: PlaneSensor
+	
+	
+	
