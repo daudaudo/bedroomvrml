@@ -50,7 +50,7 @@ DEF	photo Transform	{
 							diffuseColor 0.8 0.8 0.8
 						}
 						texture	ImageTexture {
-							url	"../texture/onepiece.jpg"
+							url	"../texture/ironman1.jpg"
 						}
 					}
 					geometry IndexedFaceSet {

@@ -1,7 +1,46 @@
 #VRML V2.0 utf8
-Viewpoint {
-	position 0 3 15
+
+DEF mainview Viewpoint {
+	position  0 3 15
+	orientation 0 1 0 0
+	description	"view"
+	jump TRUE
+
 }
+
+DEF midview Viewpoint {
+	fieldOfView 0.785398
+	position 3 3.5 -2
+	orientation 0 1 0 1.57
+	description	"mid view"
+	jump TRUE
+}
+
+DEF view-pc Viewpoint {
+	fieldOfView 0.785398
+	position 1.5 3 -4
+	orientation 0 1 0 -1.57
+	description	"view pc"
+	jump TRUE
+}
+
+DEF viewstand Viewpoint {
+	fieldOfView 0.785398
+	position 1.5 5 -2
+	orientation 0 1 0 0
+	description	"view stand"
+	jump TRUE
+}
+
+DEF viewbookcase Viewpoint {
+	fieldOfView 0.785398
+	position 1.5 5 -4
+	orientation 0 1 0 -1.57
+	description	"view bookcase"
+	jump TRUE
+}
+
+
 Transform {
 	rotation 0 1 0 3.14
 	children [
@@ -96,7 +135,11 @@ Transform {
     		]
 		}
 		#chair
-		Transform {
+
+		Anchor {
+      url "#view-pc"
+      
+      children Transform {
 			rotation 0 1 0 1.57
 			translation   -3.6 0.7 3.7
 			scale  0.6 0.6 0.6
@@ -106,6 +149,9 @@ Transform {
     			}
     		]
 		}
+    }
+
+		
 		#case
 		Transform {
 			  rotation 0 1 0 3.14
@@ -310,6 +356,15 @@ Transform {
 				}
 			]
 		}
+		Transform {
+			translation	0 3 6.6
+			rotation 0 1 0 3.14
+			children [
+    			Inline {
+        			url "text-color.wrl"
+    			}
+    		]
+		}
 
 			Transform {
 		#	translation   -5 1.85 -14
@@ -323,9 +378,10 @@ Transform {
     		]
 		}
 
-
-
-		Transform {
+		   	Anchor {
+      url "#midview"
+      
+      children Transform {
 		#	translation   -5 1.85 -14
 			translation   3.7 3.5 1.6   
 			rotation 0 1 0 -1.57
@@ -336,6 +392,9 @@ Transform {
     			}
     		]
 		}
+    }
+
+		
 
 		#Den gia sach
 		Transform {

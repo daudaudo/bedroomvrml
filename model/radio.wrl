@@ -50,8 +50,8 @@ DEF	radio Group	{
 					}
 					 minFront 5.0
 					minBack  5.0
-					maxFront 10.0
-					maxBack  10.0
+					maxFront 100.0
+					maxBack  100.0
 				}
 			]
 		}
