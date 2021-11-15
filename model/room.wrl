@@ -1,28 +1,15 @@
 #VRML V2.0 utf8
 
-Group {
-	children [
-		 Transform {
-			translation	0 0 0
-			scale 1 1 1
-			children [
-				DEF ps ProximitySensor { size 20 20 20}
-				DEF sl SpotLight { on FALSE
-					color 0 1 0
-					location 0 0 4}
-
-			]
-		}
-	]	}
-ROUTE ps.isActive TO sl.set_on
-
 
 Group {
 	children [
 		Shape {
-			appearance Appearance {
-				material Material {
-					diffuseColor 0.3607 0.3507 0.3607
+			appearance DEF mat Appearance {
+				material  Material {
+					diffuseColor .24 .24 .24
+					specularColor .3 .25 .3
+					ambientIntensity .06
+					shininess .05
 				}
 			}
 			geometry IndexedFaceSet {
@@ -99,6 +86,38 @@ Group {
 			}
 		}
 
+
+ Transform {
+	 translation -1.25 3.5 6.83
+	 children [
+		   DEF h1 Shape {
+			   appearance USE mat
+			   geometry	Box	{
+				   size	10.8 7  0.35
+			   }
+		   }
+	 
+	 ]
+ }
+  Transform	{
+	  translation 3.975 3.5 1.269
+	  scale	1.05 1 1
+	  rotation 0 1 0 1.57
+	  children [
+	  USE h1
+	  ]
+  }
+  Transform	{
+	  translation -1.42 7 1.25
+	  children [
+			 Shape {
+				 appearance	USE	mat
+				geometry Box {
+					size 11.15 0.35 11.5
+				}
+			 }
+	  ]
+  }
 		Shape {
 			geometry IndexedFaceSet {
 				solid FALSE

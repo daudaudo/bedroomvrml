@@ -1,4 +1,26 @@
 #VRML V2.0 utf8
+Group {
+	children [
+		 Transform {
+			translation	0 0 0
+			children [
+				DEF ps ProximitySensor { 
+					
+					center 0 10 0
+					size 30 30 30
+
+				}
+				DEF sl SpotLight { on FALSE
+					color 1 1 1
+					location 0 10 0
+					radius 50
+					direction 0 -1 0
+				}
+
+			]
+		}
+	]	}
+ROUTE ps.isActive TO sl.set_on
 DEF	bed Transform {
 	scale 0.75 1 1
 	children [
@@ -86,7 +108,7 @@ DEF	bed Transform {
 				Shape {
 					appearance DEF maudem Appearance {
 						material Material {
-							diffuseColor 0.9 0.9 0.9
+							diffuseColor 0.5 0.5 0.5
 						}
 						texture ImageTexture {
 							url	"../texture/fabric.jpg"

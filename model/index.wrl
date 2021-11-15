@@ -1,17 +1,39 @@
 #VRML V2.0 utf8
-Group {
+Viewpoint {
+	position 0 3 15
+}
+Transform {
+	rotation 0 1 0 3.14
 	children [
-		DirectionalLight {
+		  Group {
+	children [
+		
+				DirectionalLight {
 			ambientIntensity 0
 			color 1 1 .9,
-			direction .5 -1.5 -1,
+			direction -1 -1 -1
+			intensity 1.8
+			on TRUE
+		}
+
+			DirectionalLight {
+			ambientIntensity 0
+			color 1 1 .9,
+			direction 0 1 0
 			intensity 1.8
 			on TRUE
 		}
 		DirectionalLight {
 			ambientIntensity 0
 			color 1 1 .9,
-			direction -.5 1 0,
+			direction 1 -1 -1
+			intensity 1
+			on TRUE
+		}
+		DirectionalLight {
+			ambientIntensity 0
+			color .6 .6 .8,
+			direction 1	-1 1
 			intensity 1
 			on TRUE
 		}
@@ -21,13 +43,7 @@ Group {
 			]
 			headlight FALSE
 		}
-		DirectionalLight {
-			ambientIntensity 0
-			color .6 .6 .8,
-			direction -1 .5 2,
-			intensity 1
-			on TRUE
-		}
+		
 		Background {
 			groundAngle [
 				1.5 1.6
@@ -92,37 +108,16 @@ Group {
 		}
 		#case
 		Transform {
-			  rotation 0 0 1 -1.57
-			translation   -4.8 0.9 6
-			scale  0.1 0.1 0.1
+			  rotation 0 1 0 3.14
+			translation   -5.5 2.6 2
+			scale  0.15 0.15 0.15
 			children [
     			Inline {
         			url "case-pc.wrl"
     			}
     		]
 		}
-		#pc
-		Transform {
-			rotation 0 1 0 1.64
-			translation   -6.3 1.85 4.9
-			scale  0.15 0.15 0.15
-			children [
-    			Inline {
-        			url "screenpc.wrl"
-    			}
-    		]
-		}
 
-		Transform {
-			rotation 0 1 0 1.5
-			translation   -6.3 1.85 3.4
-			scale  0.15 0.15 0.15
-			children [
-    			Inline {
-        			url "screenpc.wrl"
-    			}
-    		]
-		}
 
 		  #pad+keyboard
 		Transform {
@@ -152,17 +147,7 @@ Group {
     		]
 		}
 
-		#speaker
-		  Transform {
-			rotation 0 1 0 -0.4
-			translation   -6 2 2
-			scale  0.25 0.27 0.25
-			children [
-    			Inline {
-        			url "speaker.wrl"
-    			}
-    		]
-		}
+
 
 		Transform {
 			rotation 0 1 0 0.4
@@ -177,7 +162,7 @@ Group {
 		#mouse
 
 			Transform {
-			rotation 0 1 0 1.57
+			rotation 0 1 0 -1.57
 			translation   -5.2 1.9 3.5
 			scale  0.02 0.02 0.02
 			children [
@@ -185,7 +170,7 @@ Group {
 					rotation 1 0 0 1.57
 					children [
 						 Inline {
-        			url "mouse-pc.wrl"
+        			url "test-mouse-pc.wrl"
     			}
 					]
 				}
@@ -195,7 +180,7 @@ Group {
 		#door
 		Transform {
 			
-			translation   2.4 2.2 -4.2
+			translation   2.4 2.2 -4.5
 			scale  2.8 2.1 2
 			children [
     			Inline {
@@ -217,8 +202,8 @@ Group {
 		#earth
 			Transform {
 			rotation 0 1 0 -0.4
-			translation   -6 3.3 2
-			scale  0.03 0.03 0.03
+			translation   -4.4 1.8 -2.7
+			scale  0.05 0.05 0.05
 			children [
     			Inline {
         			url "earth.wrl"
@@ -226,7 +211,7 @@ Group {
     		]
 		}
 	   #fan
-		Transform {
+		DEF fan Transform {
 			
 			translation   -1 6.2 2
 			scale  0.1 0.1 0.1
@@ -271,8 +256,10 @@ Group {
 
 		#lamp
 		   Transform {
-			translation   -5 1.85 -14
-			scale  2 3 2
+		#	translation   -5 1.85 -14
+			translation   -5 1.85 22   
+			rotation 0 1 0 3.14
+			scale  2 2 2
 			children [
     			Inline {
         			url "desk_lamp.wrl"
@@ -281,47 +268,9 @@ Group {
 		}
 
 		#
-		Transform {
-			translation	-1.5 7 1
-			children [
-				Shape {
-					geometry Box {
-						size 11 0.3 12
-					}
-					appearance DEF A1 Appearance {
-						material Material {
-							diffuseColor 0.3607 0.3507 0.3607
-						}
-					}
-				}
-			]
-		}
 
-		Transform {
-			rotation 0 0 1 1.57
-			translation	4 3.6 1
-			children [
-				Shape {
-					geometry Box {
-						size 7.2 0.3 12
-					}
-					appearance USE A1
-				}
-			]
-		}
-		#tuong
-		Transform {
-			rotation 1 0 0 1.57
-			translation	-1.5 3.6 6.9
-			children [
-				Shape {
-					geometry Box {
-						size 11 0.3 7.2
-					}
-					appearance USE A1
-				}
-			]
-		}
+
+
 		 Transform {
 			translation	-1.8 5 6.5
 			children [
@@ -329,7 +278,11 @@ Group {
 					geometry Box {
 						size 5 0.1 1
 					}
-					appearance USE A1
+					appearance DEF A1 Appearance {
+						material Material {
+							diffuseColor 0.3607 0.3507 0.3607
+						}
+					}
 				}
 			]
 			
@@ -357,6 +310,33 @@ Group {
 				}
 			]
 		}
+
+			Transform {
+		#	translation   -5 1.85 -14
+			translation   1 1 5.5   
+			rotation 0 1 0 3.14
+
+			children [
+    			Inline {
+        			url "cabinet.wrl"
+    			}
+    		]
+		}
+
+
+
+		Transform {
+		#	translation   -5 1.85 -14
+			translation   3.7 3.5 1.6   
+			rotation 0 1 0 -1.57
+			scale  4 4 4
+			children [
+    			Inline {
+        			url "photo3.wrl"
+    			}
+    		]
+		}
+
 		#Den gia sach
 		Transform {
 			translation	-1.8 3.7 6.4
@@ -373,10 +353,10 @@ Group {
 			translation	3.7 6.7 1.6
 			rotation 1 0 0 1.57
 			children [
-				Shape {
+			 Shape {
 					appearance Appearance {
-						material Material {
-						emissiveColor 1 1 1
+						material 	DEF lightroomM Material {
+						emissiveColor 1 0 0
 					}
 					}
 					geometry Cylinder	{
@@ -384,11 +364,178 @@ Group {
 						radius 0.05
 					}
 				}
-				PointLight {
+				DEF lightroom PointLight {
+					color 1 0 0
 					intensity 1
-					radius 100
+					radius 10
+				}
+			]
+		}
+
+		Transform {
+			translation 0 6.5 -4
+			rotation 0 0 1 1.57
+			children [
+			 Shape {
+					appearance  Appearance {
+						material DEF lightroomM1 Material {
+						emissiveColor 0 0 1
+					}
+					}
+					geometry Cylinder	{
+
+						height 3
+						radius 0.05
+					}
+				}
+				DEF lightroom1 PointLight {
+					color 0 0 1
+					intensity 1
+					radius 10
 				}
 			]
 		}
 	]
 }
+	]
+}
+
+		Transform {
+			translation	0 3 4
+			rotation 1 0 0 -1.57
+			scale 0.1 0.1 0.1 
+			children [
+			Group {
+	children [
+	DEF	fanSwitch TouchSensor {
+
+	}
+	Transform {
+	translation	1.5 0 0
+	children [
+	Shape {
+		appearance Appearance {
+			material Material {
+				diffuseColor 0 1 0
+				emissiveColor 0 1 0
+			}
+		}
+		geometry Cylinder {
+
+		}
+	}
+
+	]
+}
+
+	]
+}
+
+
+Group {
+	children [
+	DEF	lightSwitch TouchSensor {
+
+	}
+	Transform {
+	translation	-1.5 0 0
+	children [
+	Shape {
+		appearance Appearance {
+			material Material {
+				diffuseColor 1 0 0
+				emissiveColor 1 0 0
+			}
+		}
+		geometry Cylinder {
+
+
+		}
+	}
+
+	]
+}
+
+	]
+}
+
+
+
+
+Transform {
+	translation	0 -0.5 0
+	children [
+	Shape {
+		appearance Appearance {
+			material Material {
+				diffuseColor 0.8 0.8 0.8
+				emissiveColor 0.05 0.05 0.05
+			}
+		}
+		geometry Box {
+				 size 8 1 5
+		}
+	}
+
+	]
+}
+			]
+		}
+Group {
+	children [
+
+
+		DEF	fanRotating TimeSensor {
+			startTime -1
+			stopTime 0
+			loop TRUE
+		}
+	  
+		DEF oi OrientationInterpolator {
+		key	[0,0.33,0.66,1]
+		keyValue [0 1 0 0 , 
+				0 1 0 2.09
+			    0 1 0 4.18
+				0 1 0 6.28
+			]
+	}
+	]	
+}
+DEF Toggle Script {
+	field    SFBool on TRUE
+	field	 SFColor oncolor 1 1 1
+	field	 SFColor offcolor 0 0 0
+	field	 SFColor color 0.5 0.5 0.5
+	eventIn  SFBool set_active
+	eventOut SFBool on_changed
+	eventOut SFColor on_color
+
+	url "javascript:
+	function set_active(b) {
+			// ignore button releases
+			if ( b == FALSE ) return;
+
+			// toggle on button presses
+			if ( on == TRUE ){ 
+				on = FALSE;
+				color = offcolor
+			}
+			else {             
+				on = TRUE;
+				color = oncolor
+			}
+			on_changed = on;
+			on_color = color;
+		}"
+}
+
+ROUTE lightSwitch.isActive TO Toggle.set_active
+ROUTE Toggle.on_changed	TO lightroom.set_on
+ROUTE Toggle.on_color TO lightroomM.emissiveColor
+ROUTE Toggle.on_changed	TO lightroom1.set_on
+ROUTE Toggle.on_color TO lightroomM1.emissiveColor
+ROUTE fanSwitch.touchTime TO fanRotating.set_startTime
+ROUTE fanSwitch.touchTime TO fanRotating.set_stopTime
+
+ROUTE fanRotating.fraction_changed TO oi.set_fraction
+ROUTE oi.value_changed TO fan.rotation

@@ -4,33 +4,350 @@
 NavigationInfo {
    headlight FALSE
 }
+
+
+
+Sound {
+					source DEF Src AudioClip {
+						url "../sound/welcome.mp3"
+						pitch 1.0
+					}
+					 minFront 5.0
+					minBack  5.0
+					maxFront 200.0
+					maxBack  200.0
+				}
 Transform {
-	translation 0 0 -3.6
+	translation	5 -5 -21
+	rotation 0 1 0 -1.37
 	children [
-		 DEF li PointLight {
-         color 1 0 0
-         intensity 1
-         ambientIntensity 0
-         location 0 0 0
-         radius 5
-         attenuation 1 0 0
-      }
+	
+			Group {
+	children [
+			Shape {
+				geometry Box {
+					size 5 0.25 2.5
+				}
+				appearance DEF A1 Appearance {
+					material Material {
+						diffuseColor 0.45 0.45 0.45
+					}
+				}
+			}
+
+			Transform {
+				translation	0 2.5 0
+				children [
+					Shape {
+						geometry Box {
+							size 1 5 0.4
+
+						}
+						appearance USE A1
+					}
+				]
+			}
+
+			Transform {
+				translation	0 4.5 0.4
+				children [
+				Shape {
+					geometry Box {
+							 size 1 1 0.6
+					}
+					appearance USE A1
+				}
+				]
+			}
+
+
+			Transform {
+				translation	0 4.5 1
+				rotation 1 0 0 -1.57
+				children [
+					Shape {
+						appearance USE A1
+							geometry IndexedFaceSet {
+								coord Coordinate {
+									point [-5 0 -3,5 0 -3,5 0 3,-5 0 3,-1 0.5 -1,1 0.5 -1,1 0.5 1, -1 0.5 1]
+							}
+								coordIndex [0 4 5 1 0 -1 
+											1 5 6 2 1 -1 
+											2 6 7 3 2 -1 
+											3 7 4 0 3 -1 
+											5 4 7 6 5 -1 
+											0 1 2 3 0]
+																												   
+								color Color	{
+									color [0.4 0.4 0.4]
+								}
+								colorPerVertex FALSE
+								colorIndex [0]
+								solid TRUE
+					}
+}
+				]
+			}
+
+	Transform {
+		translation	0 1.6 1.1
+	children [
+Group {
+	children [
+	 Transform {
+		 children [
+		  Shape	{
+			  geometry DEF b1 Box {
+				  size 10 0.2 0.2
+			  }
+			  appearance USE A1
+
+		  }
+		  Transform	{
+			  translation -4.9 2.9 0
+			  children [
+			  Shape	{
+			  geometry DEF b2 Box {
+				  size 0.2 6 0.2
+			  }
+			  appearance USE A1
+
+		  }
+			  ]
+		  }
+
+		  Transform	{
+			  translation 0 5.9 0
+			  children [
+			  Shape	{
+			  geometry USE b1
+			  appearance USE A1
+
+		  }
+			  ]
+		  }
+
+		  Transform	{
+			  translation 4.9 2.9 0
+			  children [
+			  Shape	{
+			  geometry USE b2
+			  appearance USE A1
+
+		  }
+			  ]
+		  }
+		 ]
+	 }
+
+	 Transform {
+			   translation 0 2.9 -0.05
+				children [
+					Shape {
+						appearance  Appearance {
+							texture	DEF screen MovieTexture {
+								url	"../sound/welcome.mpeg"
+								loop FALSE	 startTime 0 stopTime 1
+							}
+						}
+						
+							geometry IndexedFaceSet {
+								coord Coordinate {
+									point [4.8 2.9 0 , 4.8 -2.9 0, -4.8 -2.9 0, -4.8 2.9 0]
+							}
+								coordIndex [3 2 1 0 3]
+																												   
+								color Color	{
+									color [0.4 0.4 0.4]
+								}
+								colorPerVertex FALSE
+								colorIndex [0]
+								solid TRUE
+					}
+}
+				]
+			}
+	]
+}
+				]
+			}
+
+	]
+}
 	]
 }
 
+
 Transform {
-	translation -2 -5 -1
+	translation	5 -5 -10
+	rotation 0 1 0 -1.77
 	children [
-		 DEF li1 PointLight {
-         color 0 0 0
-         intensity 1
-         ambientIntensity 0
-         location 0 0 0
-         radius 5
-         attenuation 1 0 0
-      }
+	
+			Group {
+	children [
+			Shape {
+				geometry Box {
+					size 5 0.25 2.5
+				}
+				appearance  Appearance {
+					material Material {
+						diffuseColor 0.45 0.45 0.45
+					}
+				}
+			}
+
+			Transform {
+				translation	0 2.5 0
+				children [
+					Shape {
+						geometry Box {
+							size 1 5 0.4
+
+						}
+						appearance USE A1
+					}
+				]
+			}
+
+			Transform {
+				translation	0 4.5 0.4
+				children [
+				Shape {
+					geometry Box {
+							 size 1 1 0.6
+					}
+					appearance USE A1
+				}
+				]
+			}
+
+
+			Transform {
+				translation	0 4.5 1
+				rotation 1 0 0 -1.57
+				children [
+					Shape {
+						appearance USE A1
+							geometry IndexedFaceSet {
+								coord Coordinate {
+									point [-5 0 -3,5 0 -3,5 0 3,-5 0 3,-1 0.5 -1,1 0.5 -1,1 0.5 1, -1 0.5 1]
+							}
+								coordIndex [0 4 5 1 0 -1 
+											1 5 6 2 1 -1 
+											2 6 7 3 2 -1 
+											3 7 4 0 3 -1 
+											5 4 7 6 5 -1 
+											0 1 2 3 0]
+																												   
+								color Color	{
+									color [0.4 0.4 0.4]
+								}
+								colorPerVertex FALSE
+								colorIndex [0]
+								solid TRUE
+					}
+}
+				]
+			}
+
+	Transform {
+		translation	0 1.6 1.1
+	children [
+Group {
+	children [
+	 Transform {
+		 children [
+		  Shape	{
+			  geometry Box {
+				  size 10 0.2 0.2
+			  }
+			  appearance USE A1
+
+		  }
+		  Transform	{
+			  translation -4.9 2.9 0
+			  children [
+			  Shape	{
+			  geometry Box {
+				  size 0.2 6 0.2
+			  }
+			  appearance USE A1
+
+		  }
+			  ]
+		  }
+
+		  Transform	{
+			  translation 0 5.9 0
+			  children [
+			  Shape	{
+			  geometry USE b1
+			  appearance USE A1
+
+		  }
+			  ]
+		  }
+
+		  Transform	{
+			  translation 4.9 2.9 0
+			  children [
+			  Shape	{
+			  geometry USE b2
+			  appearance USE A1
+
+		  }
+			  ]
+		  }
+		 ]
+	 }
+
+	 Transform {
+			   translation 0 2.9 -0.05
+				children [
+					Shape {
+						appearance Appearance {
+								texture DEF screen1 	MovieTexture {
+								url	"../sound/welcome.mpeg"
+								loop FALSE	 
+								startTime 0 
+								stopTime 1
+							
+							}
+						}
+						
+							geometry IndexedFaceSet {
+								coord Coordinate {
+									point [4.8 2.9 0 , 4.8 -2.9 0, -4.8 -2.9 0, -4.8 2.9 0]
+							}
+								coordIndex [3 2 1 0 3]
+																												   
+								color Color	{
+									color [0.4 0.4 0.4]
+								}
+								colorPerVertex FALSE
+								colorIndex [0]
+								solid TRUE
+					}
+}
+				]
+			}
 	]
 }
+				]
+			}
+
+	]
+}
+	]
+}
+
+
+
+ Transform {
+
+	 rotation 0. 0 1 1.57
+	 children [
+	 
 
 Group {
 	children [
@@ -39,7 +356,16 @@ Group {
 Transform {
 	translation	-1 1.75 0
 	children [
-		DEF	btn Shape {
+		
+		Shape {
+			appearance Appearance {
+
+				material DEF btn Material {
+					diffuseColor 0 0 0
+					emissiveColor 1 0 0
+
+				}
+			}
 			geometry Cylinder {
 				radius 0.5
 				height 1
@@ -56,7 +382,7 @@ Transform {
 
 
 Transform {
-	translation	2 -4.5 0.5
+	translation	2 -4.5 -2.5
 	scale 1 1 1
 	rotation -1 0 0 1.57
 	children [
@@ -66,11 +392,8 @@ Transform {
 	
 		Shape {
 			appearance Appearance {
-				material Material {
-					diffuseColor 1 .85 0
-					specularColor .87 .25 .25
-					ambientIntensity .157
-					shininess 1
+				material DEF may0 Material {
+					emissiveColor 1 0 0
 				}
 			}
 			geometry Cylinder {
@@ -82,10 +405,10 @@ Transform {
 				translation	0 -1 0
 				children [
 		
-					DEF h1 Shape {
+					Shape {
 						appearance Appearance {
 							material Material { 
-								diffuseColor 0.1 0.1 0.1
+								emissiveColor 0.1 0.1 0.1
 
 							}
 						}
@@ -101,8 +424,8 @@ Transform {
 		
 					Shape {
 						appearance Appearance {
-							material Material { 
-								diffuseColor 0.8 0.8 0.8
+							material DEF may1 Material { 
+								emissiveColor 1 0 0
 
 							}
 						}
@@ -118,8 +441,8 @@ Transform {
 						children [
 							DEF d1 Shape {
 								appearance Appearance {
-									material Material {
-										diffuseColor .33 .34 .6
+									material DEF may2 Material {
+										emissiveColor 1 0 0
 							
 									}
 								}
@@ -151,8 +474,7 @@ Shape {
 	appearance Appearance {
 		material Material {
 			diffuseColor 0 0 0
-			specularColor .63 .92 1
-			ambientIntensity 0
+			emissiveColor 0.1 0.1 0.1
 		}
 	}
 		geometry IndexedFaceSet {
@@ -223,6 +545,8 @@ Shape {
 					}
 }
 
+	 ]
+ }
 
 
 DEF SCRIPT Script {
@@ -234,11 +558,11 @@ DEF SCRIPT Script {
 function clicked(val) {
    if(val) {
       if(lit) { 
-	 color = new SFColor(0,0,0); 
+	 color = new SFColor(1,0,0); 
 	 lit = FALSE;
       }
       else { 
-	 color = new SFColor(1,1,0); 
+	 color = new SFColor(0,0,1); 
 	 lit = TRUE;
       }
    }
@@ -247,6 +571,14 @@ function clicked(val) {
 }
 
 ROUTE TOUCH.isActive TO SCRIPT.clicked
-ROUTE SCRIPT.color TO li.color
-ROUTE SCRIPT.color TO li1.color
+ROUTE TOUCH.touchTime TO  Src.set_startTime
+ROUTE TOUCH.touchTime TO  Src.set_stopTime
+ROUTE TOUCH.touchTime TO  screen.set_startTime
+ROUTE TOUCH.touchTime TO screen.set_stopTime
+ROUTE TOUCH.touchTime TO  screen1.set_startTime
+ROUTE TOUCH.touchTime TO  screen1.set_stopTime
+ROUTE SCRIPT.color TO btn.emissiveColor
+ROUTE SCRIPT.color TO may0.emissiveColor
+ROUTE SCRIPT.color TO may1.emissiveColor
+ROUTE SCRIPT.color TO may2.emissiveColor
  
