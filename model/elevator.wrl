@@ -1,0 +1,69 @@
+#VRML V2.0 utf8
+
+# starting viewpoint
+Viewpoint {
+   position 0 1.75 5
+}
+
+DirectionalLight {
+   direction 0 -1 0
+}
+
+# elevator geometry in a transform
+DEF MOVEME Transform {
+   children [
+
+      # elevator viewpoint
+      Transform {
+	 translation 0 1.75 0
+	 children DEF EVIEW Viewpoint {
+	    position 0 0 0
+	    jump FALSE
+
+	 }
+      }
+
+      # elevator floor
+      Shape {
+	 appearance Appearance { material Material { diffuseColor 1 .8 .5 } }
+	 geometry Box { size 2 .1 2 }
+      }
+
+      # proximity sensor to trigger elevator motion and viewpoint binding
+      DEF SENSOR ProximitySensor {
+	 center 0 0 0
+	 size 2 4 2
+      }
+     ]
+}
+
+# visual reference geometry
+Transform { 
+   translation 0 -2 -20
+   children [
+      Shape {
+	 appearance Appearance { material Material { diffuseColor .2 .9 .7 } }
+	 geometry Sphere { radius 10 }
+      }
+      Shape {
+	 appearance Appearance { material Material { diffuseColor .2 .3 .1 } }
+	 geometry Box { size 40 .1 40 }
+      }
+     ]
+}
+
+# elevator interpolator
+DEF MOVER PositionInterpolator {
+   key [ 0 1 ]
+   keyValue [ 0 0 0,  0 30 0 ]
+}
+
+DEF TIMER TimeSensor {
+   cycleInterval 20
+}
+
+ROUTE SENSOR.isActive TO EVIEW.set_bind
+ROUTE SENSOR.enterTime TO TIMER.startTime
+ROUTE TIMER.fraction_changed TO MOVER.set_fraction
+ROUTE MOVER.value_changed TO MOVEME.translation
+
