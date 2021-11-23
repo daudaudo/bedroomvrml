@@ -1,0 +1,87 @@
+#VRML V2.0 utf8
+
+										   #VRML V2.0 utf8
+
+
+
+DEF	photo Transform	{
+	children [
+		DEF khung Transform {
+			children [
+				Transform {
+
+					children [
+						Shape {
+							appearance DEF maukhung Appearance {
+								material Material {
+									diffuseColor .451 .0902 .137
+					}
+							}
+							geometry Box {
+								size 1.1 1.1 0.01
+							}
+						}
+					]
+				}
+			]
+		}
+		Transform {
+			translation	-0.5 -0.5 0.0065
+
+			children [
+				Shape {
+					appearance Appearance {
+						material DEF mat Material {
+							diffuseColor 0.8 0.8 0.8
+						}
+						texture	ImageTexture {
+							url	"../texture/ironman3.jpg"
+						}
+					}
+					geometry DEF photo IndexedFaceSet {
+						coord Coordinate {
+							point  [
+								0,0,0,
+								1,0,0,
+								1,1,0,
+								0,1,0,
+							]
+						}
+						coordIndex [
+							0,1,2,3,-1
+
+						]
+					}
+				}
+			]
+		}
+		Transform {
+			translation	-0.5 -0.5 0.0055
+
+
+			children [
+				Shape {
+					appearance Appearance {
+						texture	ImageTexture {
+							url	"../texture/ironman2.jpg"
+						}
+					}
+					geometry USE photo
+				}
+			]
+		}
+	]
+}
+
+  DEF time TimeSensor {
+	  loop TRUE
+		cycleInterval 8
+  }
+  DEF color ScalarInterpolator {
+	  key [0  0.5 1] 
+      keyValue [0  1  0] 
+  }
+
+
+  ROUTE	time.fraction_changed TO color.set_fraction
+  ROUTE	color.value_changed	TO mat.transparency
