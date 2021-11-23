@@ -344,6 +344,7 @@ Group {
 
 
  Transform {
+	 translation 0 0.2 0
 
 	 rotation 0. 0 1 1.57
 	 children [
@@ -473,8 +474,10 @@ Transform {
 Shape {
 	appearance Appearance {
 		material Material {
-			diffuseColor 0 0 0
-			emissiveColor 0.1 0.1 0.1
+			diffuseColor .1 .1 .1
+			specularColor .74 .6 .74
+			ambientIntensity .25
+			shininess .11
 		}
 	}
 		geometry IndexedFaceSet {

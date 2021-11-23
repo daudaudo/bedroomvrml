@@ -24,21 +24,31 @@ DEF view-pc Viewpoint {
 	jump TRUE
 }
 
-DEF viewstand Viewpoint {
+DEF view-stand Viewpoint {
 	fieldOfView 0.785398
-	position 1.5 5 -2
+	position 2 4.5 -1.5
 	orientation 0 1 0 0
 	description	"view stand"
 	jump TRUE
 }
 
-DEF viewbookcase Viewpoint {
+DEF view-bookcase Viewpoint {
 	fieldOfView 0.785398
 	position 1.5 5 -4
 	orientation 0 1 0 -1.57
 	description	"view bookcase"
 	jump TRUE
 }
+#
+
+DEF view-switch Viewpoint {
+	fieldOfView 0.785398
+	position 0 3 1
+	orientation 0 1 0 3.14
+	description	"view switch"
+	jump TRUE
+}
+
 
 
 Transform {
@@ -49,31 +59,38 @@ Transform {
 		
 				DirectionalLight {
 			ambientIntensity 0
-			color 1 1 .9,
+			color 1 1 1,
 			direction -1 -1 -1
-			intensity 1.8
+			intensity 0.3
 			on TRUE
 		}
 
 			DirectionalLight {
 			ambientIntensity 0
-			color 1 1 .9,
+			color 1 1 1,
 			direction 0 1 0
-			intensity 1.8
+			intensity 0.3
 			on TRUE
 		}
 		DirectionalLight {
 			ambientIntensity 0
 			color 1 1 .9,
 			direction 1 -1 -1
-			intensity 1
+			intensity 0.3															
 			on TRUE
 		}
 		DirectionalLight {
 			ambientIntensity 0
-			color .6 .6 .8,
+			color 1 1 1,
 			direction 1	-1 1
-			intensity 1
+			intensity 0.3
+			on TRUE
+		}
+		DirectionalLight {
+			ambientIntensity 0
+			color 1 1 1,
+			direction -1	-1 1
+			intensity 0.3
 			on TRUE
 		}
 		NavigationInfo {
@@ -82,6 +99,92 @@ Transform {
 			]
 			headlight FALSE
 		}
+
+		Anchor {
+      url "#midview"
+      
+      children Transform {
+
+			translation   3.7 1 1.6
+
+			children [
+    				DEF point Shape {
+						appearance Appearance {
+							material Material {
+								diffuseColor 1 1 1
+								emissiveColor 1 1 1
+							}
+						}
+						geometry Sphere	{
+							radius 0.05
+
+						}
+					}
+    			]
+			}
+    	}
+		Anchor {
+      url "#view-pc"
+      
+
+
+			children [
+    				#chair
+		Transform {
+			rotation 0 1 0 1.57
+			translation   -3.6 0.7 3.7
+			scale  0.6 0.6 0.6
+			children [
+    			Inline {
+        			url "chair.wrl"
+    			}
+    		]
+		}
+    			]
+			
+    	}
+
+		Anchor {
+      url "#view-switch"
+      
+      children Transform {
+
+			translation   0 2.5 -4
+
+			children [
+    				USE	point
+    			]
+			}
+    	}
+		#
+
+		Anchor {
+      url "#view-stand"
+      
+      children Transform {
+
+			translation  -2 2.5 6.6
+
+			children [
+    				USE	point
+    			]
+			}
+    	}
+
+		Anchor {
+      url "#view-bookcase"
+      
+      children Transform {
+
+			translation   -6.5 3.3 4.3
+
+			children [
+    				USE	point
+    			]
+			}
+    	}
+
+		
 		
 		Background {
 			groundAngle [
@@ -134,22 +237,9 @@ Transform {
     			}
     		]
 		}
-		#chair
+		
 
-		Anchor {
-      url "#view-pc"
-      
-      children Transform {
-			rotation 0 1 0 1.57
-			translation   -3.6 0.7 3.7
-			scale  0.6 0.6 0.6
-			children [
-    			Inline {
-        			url "chair.wrl"
-    			}
-    		]
-		}
-    }
+		
 
 		
 		#case
@@ -365,6 +455,16 @@ Transform {
     			}
     		]
 		}
+		Transform {
+			translation	1.5 3.3 6.6
+			scale 1.5 1.5 1
+			rotation 0 1 0 3.14
+			children [
+    			Inline {
+        			url "photo4.wrl"
+    			}
+    		]
+		}
 
 			Transform {
 		#	translation   -5 1.85 -14
@@ -378,10 +478,7 @@ Transform {
     		]
 		}
 
-		   	Anchor {
-      url "#midview"
-      
-      children Transform {
+		Transform {
 		#	translation   -5 1.85 -14
 			translation   3.7 3.5 1.6   
 			rotation 0 1 0 -1.57
@@ -392,7 +489,7 @@ Transform {
     			}
     		]
 		}
-    }
+		   	
 
 		
 
@@ -528,7 +625,7 @@ Transform {
 		appearance Appearance {
 			material Material {
 				diffuseColor 0.8 0.8 0.8
-				emissiveColor 0.05 0.05 0.05
+				emissiveColor 0.5 0.5 0.5
 			}
 		}
 		geometry Box {

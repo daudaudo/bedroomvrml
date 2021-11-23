@@ -11,8 +11,8 @@ Sound {
 		url	"../sound/keyboard.mp3"
 		
 	}
-	maxBack	100
-	maxFront 100
+	maxBack	50
+	maxFront 50
 	minBack	5
 	minFront 5
 }
@@ -157,3 +157,4 @@ Transform {
 
 
 ROUTE touch.touchTime TO sou.startTime
+ROUTE touch.touchTime TO sou.stopTime

@@ -4,13 +4,12 @@ Shape {
    appearance Appearance { 
       material DEF textcolor Material { 
 		  diffuseColor  1 1 0
-		  emissiveColor	0.5 0.5 0.5
 	  } 
    }
    geometry Text {
       string [ "IRON MAN" ]
       fontStyle FontStyle {
-	 family [ "Serenity", "BOLD" ]
+	 family [ "Arial", "BOLD" ]
 	 
       }
 
@@ -19,22 +18,30 @@ Shape {
 
 
   DEF prox ProximitySensor {
-	  size 10 10 10 
+	  size 20 20 20 
   }
   DEF time TimeSensor {
 	  loop TRUE
 	  startTime	0
 	  stopTime 1
+	  cycleInterval	3
 	  enabled TRUE
   }
   DEF color ColorInterpolator {
-	  key [0 0.3 1]
-	  keyValue [ 1.0 0.0 0.0
-		  1 0 0
+	  key [0  1]
+	  keyValue [ 
+		  1.0 0.0 0.0
 		  1 1 0
 	  ]
   }
+
+  DEF scal ScalarInterpolator {
+	  key [0  0.5 1] 
+      keyValue [0  1  0] 
+  }
+  
   ROUTE	prox.enterTime TO time.startTime
   ROUTE	prox.exitTime TO time.stopTime
-  ROUTE	time.fraction_changed TO color.set_fraction
+  ROUTE	time.fraction_changed TO scal.set_fraction
+  ROUTE	scal.value_changed TO color.set_fraction
   ROUTE	color.value_changed	TO textcolor.diffuseColor

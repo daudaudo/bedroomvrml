@@ -50,12 +50,13 @@ DEF	radio Group	{
 					}
 					 minFront 5.0
 					minBack  5.0
-					maxFront 100.0
-					maxBack  100.0
+					maxFront 70.0
+					maxBack  70.0
 				}
 			]
 		}
 	]
 }
 ROUTE Touch.touchTime TO Src.set_startTime
+ROUTE Touch.touchTime TO Src.set_stopTime
 
